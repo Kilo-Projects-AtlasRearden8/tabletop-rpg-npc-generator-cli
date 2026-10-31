@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rpg-npc-cli"
+version = "0.1.0"
+description = "Local-first CLI that generates tabletop RPG NPCs and campaign notes via a configurable OpenAI-compatible endpoint (default Ollama)."
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [{ name = "Asdale Dynamics, LLC" }]
+license = { text = "MIT" }
+dependencies = ["requests>=2.28.0"]
+
+[project.scripts]
+rpg = "rpg_cli.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["rpg_cli*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
